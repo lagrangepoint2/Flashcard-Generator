@@ -1,7 +1,7 @@
 var BasicCard = require("./BasicCard.js");
 
 var firstPresident = new BasicCard("Who was the first president of the United States?", "George Washington");
-var firstPresidentCloze = new ClozeCard("George Washington was the first president of the United States.", "George Washington");
+var firstPresidentCloze = new ClozeCard("George Washington was the first president of the United States.", "");
 
 // console.log(firstPresident);
 
@@ -10,7 +10,7 @@ function ClozeCard(text, cloze) {
     this.cloze = cloze;
 
     this.clozeMethod = function () {
-        console.log('*** Cloze: ', cloze);
+        errorCheck();
     };
 
     this.partMethod = function () {
@@ -21,6 +21,14 @@ function ClozeCard(text, cloze) {
     this.fullTextMethod = function () {
         console.log('*** Full Text: ', text);
     };
+
+    function errorCheck() {
+        if (!cloze) {
+            console.log('*** Nothing entered for cloze parameter!');
+        } else {
+            console.log('*** Cloze: ', cloze);
+        }
+    }
 
 }
 
